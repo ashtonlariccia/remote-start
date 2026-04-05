@@ -13,7 +13,6 @@ Tested on Ubuntu Server 24.04 LTS
 ### Config File
 - The config file must be populated by information of the target device
 - If the config file is renamed, alter the env_file variable in the wol file
-Default:
 ```bash
 env_file="config"  # Replace config with the name of the environment file (.env, device.conf, etc.)
 ```
