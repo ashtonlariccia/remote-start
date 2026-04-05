@@ -1,0 +1,6 @@
+# Fill in environment variables with your target device information
+# Ensure that Wake On LAN is enabled in BIOS on the target device
+mac=""
+broadcast=""
+user=""
+rec_ip=""

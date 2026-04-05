@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Replace env_file with the name of the file that
+# the target device's information is stored in
+env_file="config" # config, .env, device.conf, etc.
+source "$(dirname "$0")/$env_file"
+
+usage() {
+    echo "Usage: wol up/down"
+    exit 1
+}
+
+wol_check() {
+    if ! command -v wakeonlan &>/dev/null; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+ssh_check() {
+    if nc -zw3 $rec_ip 22; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+case "$1" in
+    up)
+        if ! wol_check; then
+            echo "WOL not installed."
+            exit 1
+        fi
+        wakeonlan -i "$broadcast" "$mac"
+        ;;
+    down)
+        if ! ssh_check; then
+            echo "Port 22 cannot be reached."
+            exit 1
+        fi
+        ssh "$user"@"$rec_ip" 'sudo poweroff'
+        ;;
+    *)
+        usage
+        ;;
+esac
