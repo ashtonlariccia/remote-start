@@ -2,7 +2,7 @@
 
 # Replace env_file with the name of the file that
 # the target device's information is stored in
-env_file="config" # config, .env, device.conf, etc.
+env_file="config.env" # config, .env, device.conf, etc.
 source "$(dirname "$0")/$env_file"
 
 usage() {
