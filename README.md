@@ -10,11 +10,11 @@ Tested on Ubuntu Server 24.04 LTS
 ##### Target Machine
 - Wake On LAN enabled in BIOS
 - Incoming SSH
-### Config File
-- The config file must be populated by information of the target device
-- If the config file is renamed, alter the env_file variable in the wol file
+### Config.env File
+- The config.env file must be populated by information of the target device
+- If the config.env file is renamed, alter the env_file variable in the wol file
 ```bash
-env_file="config"  # Replace config with the name of the environment file (.env, device.conf, etc.)
+env_file="config.env"  # Replace config.env with the name of the environment file (.env, device.conf, etc.)
 ```
 ### Usage
 - Once fully configured, the wol file can control power to the target machine
