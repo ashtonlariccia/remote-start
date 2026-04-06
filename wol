@@ -32,11 +32,15 @@ case "$1" in
             echo "WOL not installed."
             exit 1
         fi
+        if ssh_check; then
+            echo "Port 22 already reachable. Device may be on already."
+            exit 1
+        fi
         wakeonlan -i "$broadcast" "$mac"
         ;;
     down)
         if ! ssh_check; then
-            echo "Port 22 cannot be reached."
+            echo "Port 22 cannot be reached. Device may be off or SSH disabled."
             exit 1
         fi
         ssh "$user"@"$rec_ip" 'sudo poweroff'
