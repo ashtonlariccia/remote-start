@@ -17,6 +17,8 @@ Tested on Ubuntu Server 24.04 LTS
 env_file="config.env"  # Replace config.env with the name of the environment file (.env, device.conf, etc.)
 ```
 ### Usage
+- Place 'wol' and 'config.env' in the same directory on your device, traditionally ~/bin (& source ~/.profile) or /usr/bin
+- Fill in target device information in config.env
 - Once fully configured, the wol file can control power to the target machine
 ```bash
 wol up    # Sends magic packet to specified broadcast & MAC addresses
